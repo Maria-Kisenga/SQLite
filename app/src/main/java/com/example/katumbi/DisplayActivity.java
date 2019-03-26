@@ -29,13 +29,14 @@ public class DisplayActivity extends AppCompatActivity {
         usersList = (ListView) findViewById(R.id.users_list);
 
         viewData();
-        usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        /*usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String text  = usersList.getItemAtPosition(1).toString();
                 Toast.makeText(DisplayActivity.this, "" +text, Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
 
     private void viewData() {
@@ -44,11 +45,13 @@ public class DisplayActivity extends AppCompatActivity {
             Toast.makeText(this, "No Registered Users", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
+                //choose what you want to display in results: mine has id, name and votes only
                 listItem.add(cursor.getInt(0));
                 listItem.add(cursor.getString(1));
-                listItem.add(cursor.getString(2));
-                listItem.add(cursor.getString(3));
-                listItem.add(cursor.getString(4));
+                //listItem.add(cursor.getString(2));
+                //listItem.add(cursor.getString(3));
+                //listItem.add(cursor.getString(4));
+                listItem.add(cursor.getInt(5));
             }
             adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItem);
             usersList.setAdapter(adapter);

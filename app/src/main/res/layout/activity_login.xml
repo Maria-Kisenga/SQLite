@@ -36,4 +36,16 @@
         android:layout_height="wrap_content"
         android:text="@string/register"/>
 
+    <Button
+        android:id="@+id/btnUpd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose"/>
+
+    <Button
+        android:id="@+id/btnCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Count"/>
+
 </LinearLayout>

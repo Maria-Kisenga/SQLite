@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
     SQLiteDatabase db;
     SQLiteOpenHelper openHelper;
     Cursor cursor;
-    Button btnLogin, btnReg;
+    Button btnLogin, btnReg, btnUpd, btnViewCount;
     EditText txtEmail, txtPass;
 
     @Override
@@ -23,10 +23,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        txtEmail=(EditText)findViewById(R.id.txtEmail);
-        txtPass=(EditText)findViewById(R.id.txtPass);
-        btnLogin=(Button)findViewById(R.id.btnLogin);
+        txtEmail = (EditText)findViewById(R.id.txtEmail);
+        txtPass = (EditText)findViewById(R.id.txtPass);
+        btnLogin = (Button)findViewById(R.id.btnLogin);
         btnReg = (Button)findViewById(R.id.btnReg);
+        btnUpd = (Button)findViewById(R.id.btnUpd);
+        btnViewCount = (Button)findViewById(R.id.btnCount);
 
         openHelper=new DBHelper(this);
         db = openHelper.getReadableDatabase();
@@ -58,6 +60,22 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnUpd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, UpdateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnViewCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, DisplayActivity.class);
                 startActivity(intent);
             }
         });
